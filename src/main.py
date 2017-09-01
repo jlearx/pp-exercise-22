@@ -11,8 +11,8 @@ def PrintDict(dictionary):
 def ProcessNameLine(nameDict, line):
     
     if (line in nameDict):
-        count = nameDict[line]
-        nameDict[line] = ++count
+        count = nameDict[line] + 1
+        nameDict[line] = count
     else:
         nameDict[line] = 1
 
@@ -24,6 +24,7 @@ if __name__ == '__main__':
         line = open_file.readline()
         
         while line:
+            line = line.rstrip('\n')
             ProcessNameLine(nameDict, line)
             line = open_file.readline()
     
